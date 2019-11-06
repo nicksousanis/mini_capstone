@@ -1,5 +1,5 @@
-product = Product.new
-product = Product.new
-product = Product.new
-product = Product.new
-product = Product.new
+product = Product.new(name: "Test_item1", price: 1, image_url: "fakeurl1.com", description: "This item is a placeholder!")
+product = Product.new(name: "Test_item2", price: 2, image_url: "fakeurl2.com", description: "This item is a placeholder!")
+product = Product.new(name: "Test_item3", price: 3, image_url: "fakeurl3.com", description: "This item is a placeholder!")
+product = Product.new(name: "Test_item4", price: 4, image_url: "fakeurl4.com", description: "This item is a placeholder!")
+product = Product.new(name: "Test_item5", price: 4, image_url: "fakeurl5.com", description: "This item is a placeholder!")
