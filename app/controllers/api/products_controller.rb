@@ -32,15 +32,6 @@ class Api::ProductsController < ApplicationController
   def product_query_method
     @current_product = params["id"].to_i
     @test = Product.find_by(id: "#{@current_product}")
-    # if @current_product > -1
-    #   @test = {
-    #     id: Product.all[@current_product].id,
-    #     name: Product.all[@current_product].name,
-    #     price: Product.all[@current_product].price,
-    #     image_url: Product.all[@current_product].image_url,
-    #     description: Product.all[@current_product].description,
-    #   }
-    # end
     render "product_query.json.jb"
   end
 end
