@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get "/product_two_url" => "products#product_two_method"
     get "/product_three_url" => "products#product_three_method"
     get "/product_four_url" => "products#product_four_method"
-    get "/prudct_five_url" => "products#product_five_method"
+    get "/pruduct_five_url" => "products#product_five_method"
+    get "/products" => "products#product_query_method"
+    get "/products/:id" => "products#product_query_method"
   end
 end
