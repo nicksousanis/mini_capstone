@@ -3,27 +3,27 @@ require "tty-table"
 require "tty-prompt"
 
 #DESTROY
-puts "Enter in the id of the product you would like to destroy."
-product_id = gets.chomp.to_i
-response = HTTP.delete("http://localhost:3000/api/products/#{product_id}")
-puts "Product #{product_id} successfully deleted!"
-#UPDATE
-# puts "Enter in the id of the product you would like to update followed by what you would like to change."
+# puts "Enter in the id of the product you would like to destroy."
 # product_id = gets.chomp.to_i
-# puts "Enter in what you would like to change now. 'Name', 'Price', or 'Description'. Then enter in your change."
-# input = gets.chomp
-# if input == "Name"
-#   name = gets.chomp
-# elsif input == "Price"
-#   price = gets.chomp.to_i
-# elsif input == "Description"
-#   description = gets.chomp
-# else
-#   puts "That is not a valid command"
-# end
-# response = HTTP.patch("http://localhost:3000/api/products/#{product_id}", :params => { input_name: name, input_price: price, input_description: description })
-# data = response.parse
-# pp data
+# response = HTTP.delete("http://localhost:3000/api/products/#{product_id}")
+# puts "Product #{product_id} successfully deleted!"
+#UPDATE
+puts "Enter in the id of the product you would like to update followed by what you would like to change."
+product_id = gets.chomp.to_i
+puts "Enter in what you would like to change now. 'Name', 'Price', or 'Description'. Then enter in your change."
+input = gets.chomp
+if input == "Name"
+  name = gets.chomp
+elsif input == "Price"
+  price = gets.chomp.to_i
+elsif input == "Description"
+  description = gets.chomp
+else
+  puts "That is not a valid command"
+end
+response = HTTP.patch("http://localhost:3000/api/products/#{product_id}", :params => { input_name: name, input_price: price, input_description: description })
+data = response.parse
+pp data
 
 #CREATE
 # puts "Enter the new product you would like to add to the list. Make sure to include name, price, image_url, and description."
