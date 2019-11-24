@@ -6,5 +6,6 @@
     description: product.description,
     supplier: product.supplier,
     images: product.images,
+    category: product.categories,
   }
 end

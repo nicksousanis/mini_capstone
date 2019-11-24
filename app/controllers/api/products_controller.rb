@@ -1,17 +1,28 @@
 class Api::ProductsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
+
   def index
     @products = Product.all
 
     if params[:search]
       @products = @products.where("name ILIKE ?", "%#{params[:search]}%")
-    elsif params[:discount]
+    end
+
+    if params[:discount]
       @products = @products.where("price < ?", 100)
-    elsif params[:sort] == "price" && params[:sort_order] == "asc"
+    end
+
+    if params[:sort] == "price" && params[:sort_order] == "asc"
       @products = @products.all.order(price: :asc)
     elsif params[:sort] == "price" && params[:sort_order] == "desc"
       @products = @products.all.order(price: :desc)
     else
       @products = @products.all.order(:id)
+    end
+
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @products = category.products
     end
 
     render "index.json.jb"
@@ -28,7 +39,7 @@ class Api::ProductsController < ApplicationController
       name: params[:name],
       price: params[:price],
       description: params[:description],
-      supplier_id: params[:supplier_id]
+      supplier_id: params[:supplier_id],
     )
     if @product.save
       image = Image.new(

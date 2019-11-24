@@ -1,0 +1,6 @@
+{ id: @order.id,
+ subtotal: @order.subtotal,
+ tax: @order.tax,
+ total: @order.total,
+ quantity: @order.carted_products.quantity,
+ carted_products: @order.carted_products }
