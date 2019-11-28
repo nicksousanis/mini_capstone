@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   get "/products" => "products#index"
+  get "/products/new" => "products#new"
   get "/products/:id" => "products#show"
   post "/products" => "products#create"
-  patch "/products" => "products#update"
-  delete "/products" => "products#destroy"
+  get "products/:id/edit" => "products#edit"
+  patch "/products/:id" => "products#update"
+  delete "/products/:id" => "products#destroy"
 
   namespace :api do
     post "/users" => "users#create"

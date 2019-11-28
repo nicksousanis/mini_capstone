@@ -1,0 +1,15 @@
+<h2>Enter updated product information below</h2>
+
+<%= @product.errors.full_messages if @product.errors %><br>
+
+<form method="post" action="/products/<%= @product.id %>">
+  <input type="hidden" name="_method" value="patch">
+Name: <input type="text" name="name" value="<%= @product.name %>"><br><br>
+Price: <input type="text" name="price" value="<%= @product.price %>"><br><br>
+Description: <input type="text" name="description" value="<%= @product.description %>"><br><br>
+Supplier: <select name="supplier_id">
+  <option value="1">Gregor</option>
+  <option value="2">Lyte</option>
+</select><br><br>
+<input type="submit" value="Edit a product">
+</form>
